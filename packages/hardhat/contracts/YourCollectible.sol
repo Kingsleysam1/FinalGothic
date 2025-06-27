@@ -18,13 +18,14 @@ contract YourCollectible is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable 
         return "https://ipfs.io/ipfs/";
     }
 
-    function mintNFT(address to, string memory uri) public returns (uint256) {
-        _tokenIdCounter.increment();
-        uint256 tokenId = _tokenIdCounter.current();
-        _safeMint(to, tokenId);
-        _setTokenURI(tokenId, uri);
-        return tokenId;
-    }
+   function mintItem(address to, string memory uri) public returns (uint256) {
+    _tokenIdCounter.increment();
+    uint256 tokenId = _tokenIdCounter.current();
+    _safeMint(to, tokenId);
+    _setTokenURI(tokenId, uri);
+    return tokenId;
+}
+
 
     function _beforeTokenTransfer(
         address from,

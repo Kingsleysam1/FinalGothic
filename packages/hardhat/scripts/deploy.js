@@ -2,8 +2,8 @@
 const fs = require("fs");
 const chalk = require("chalk");
 const { config, ethers, tenderly, run } = require("hardhat");
-const { utils } = require("ethers");
 const R = require("ramda");
+const { utils } = ethers;
 
 /*
 
@@ -133,7 +133,7 @@ const abiEncodeArgs = (deployed, contractArgs) => {
   ) {
     return "";
   }
-  const encoded = utils.defaultAbiCoder.encode(
+  const encoded = ethers.utils.defaultAbiCoder.encode(
     deployed.interface.deploy.inputs,
     contractArgs
   );
